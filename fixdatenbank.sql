@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `auto_db`.`kunde` (
   `adresse` VARCHAR(99) NOT NULL,
   `plz` VARCHAR(99) NOT NULL,
   `telefon` VARCHAR(99) NOT NULL,
-  `email` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`kundenNr`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `auto_db`.`lieferant` (
   `name` VARCHAR(99) NOT NULL,
   `adresse` VARCHAR(99) NOT NULL,
   `telefon` VARCHAR(99) NOT NULL,
-  `email` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`lieferantNr`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `auto_db`.`mitarbeiter` (
   `vorname` VARCHAR(99) NOT NULL,
   `nachname` VARCHAR(99) NOT NULL,
   `telefon` VARCHAR(99) NOT NULL,
-  `email` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`mitarbeiterNr`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
