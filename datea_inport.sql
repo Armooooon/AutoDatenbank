@@ -1,35 +1,67 @@
 -- Mitarbeiter
-INSERT INTO Mitarbeiter (vorname, nachname, telefon, email) 
-VALUES 
-    ('Max', 'Mustermann', '0123456789', 'max.mustermann@example.com'),
-    ('Anna', 'Müller', '0987654321', 'anna.mueller@example.com'),
-    ('Hans', 'Schmidt', '0151122334', 'hans.schmidt@example.com'),
-    ('Maria', 'Meier', '0176345678', 'maria.meier@example.com'),
-    ('Klaus', 'Fischer', '0198765432', 'klaus.fischer@example.com');
+-- Insert data into Mitarbeiter table
+INSERT INTO Mitarbeiter (vorname, nachname, telefon, email)
+VALUES ('Max', 'Mustermann', '0123456789', 'max.mustermann@example.com'),
+('Anna', 'Müller', '0987654321', 'anna.mueller@example.com'),
+('Peter', 'Schulze', '015555555', 'peter.schulze@example.com'),
+('Sarah', 'Krause', '017777777', 'sarah.krause@example.com'),
+('Hans', 'Meier', '014444444', 'hans.meier@example.com');
 
--- Kunde
-INSERT INTO Kunde (vorname, nachname, adresse, plz, telefon, email) 
-VALUES 
-    ('Peter', 'Schneider', 'Hauptstraße 1', '12345', '0151123456', 'peter.schneider@example.com'),
-    ('Susanne', 'Meyer', 'Bahnhofstraße 10', '54321', '0176123456', 'susanne.meyer@example.com'),
-    ('Fritz', 'Schulz', 'Musterweg 5', '23456', '0162123456', 'fritz.schulz@example.com'),
-    ('Tanja', 'Kramer', 'Lindenallee 20', '34567', '0153123456', 'tanja.kramer@example.com'),
-    ('Markus', 'Hoffmann', 'Bachstraße 7', '45678', '0144123456', 'markus.hoffmann@example.com');
+-- Insert data into Kunde table
+INSERT INTO Kunde (vorname, nachname, adresse, plz, telefon, email)
+VALUES ('Johann', 'Schneider', 'Musterstraße 1', '12345', '0123456789', 'johann.schneider@example.com'),
+('Lisa', 'Fischer', 'Hauptstraße 5', '54321', '0987654321', 'lisa.fischer@example.com'),
+('Sebastian', 'Weber', 'Bahnhofstraße 3', '67890', '015555555', 'sebastian.weber@example.com'),
+('Julia', 'Schmidt', 'Parkstraße 9', '09876', '017777777', 'julia.schmidt@example.com'),
+('Markus', 'Bauer', 'Bergstraße 12', '45678', '014444444', 'markus.bauer@example.com');
 
--- Auto
-INSERT INTO Auto (kundenNr, marke, modell, jahr, kilometerstand) 
-VALUES 
-    (1, 'VW', 'Golf', 2018, 30000),
-    (1, 'BMW', '3er', 2015, 50000),
-    (2, 'Audi', 'A4', 2020, 10000),
-    (3, 'Mercedes', 'C-Klasse', 2016, 70000),
-    (4, 'VW', 'Polo', 2019, 20000);
+-- Insert data into Auto table
+INSERT INTO Auto (kundenNr, marke, modell, jahr, kilometerstand)
+VALUES (1, 'BMW', '320i', 2019, 30000),
+(2, 'Mercedes', 'C220', 2018, 40000),
+(3, 'Volkswagen', 'Golf', 2020, 20000),
+(4, 'Audi', 'A3', 2017, 50000),
+(5, 'Ford', 'Fiesta', 2021, 10000);
 
--- Fahrzeugbestand
-INSERT INTO Fahrzeugbestand (marke, modell, jahr, kilometerstand, kaufdatum, kaufpreis, verkaufsstatus) 
-VALUES 
-    ('Ford', 'Focus', 2017, 40000, '2022-01-01', 15000.00, 'zum Verkauf'),
-    ('Opel', 'Astra', 2016, 60000, '2022-02-15', 12000.00, 'zum Verkauf'),
-    ('Audi', 'Q3', 2019, 20000, '2022-03-21', 28000.00, 'verkauft'),
-    ('BMW', '5er', 2014, 80000, '2022-04-10', 18000.00, 'zum Verkauf'),
-    ('VW', 'Tiguan', 2015, 90000, '2022-05-05', 20000.00, 'verkauft');
+-- Insert data into Rechnung table
+INSERT INTO Rechnung (Verkauf_ID, Datum, Summe)
+VALUES (1, '2022-04-01', 25000.00),
+(2, '2022-04-02', 20000.00),
+(3, '2022-04-03', 15000.00),
+(4, '2022-04-04', 18000.00),
+(5, '2022-04-05', 12000.00);
+
+INSERT INTO Verkauf (Auto_ID, Kunde_ID, Datum, Preis, Zahlungsmethode, Mitarbeiter_ID, Rechnungs_ID)
+VALUES (1, 2, '2022-03-14', 8000.00, 'Barzahlung', 1, 1),
+(2, 1, '2022-04-05', 12000.00, 'Finanzierung', 2, 2),
+(3, 2, '2022-05-07', 6500.00, 'Barzahlung', 1, 3),
+(4, 3, '2022-06-21', 15000.00, 'Finanzierung', 3, 4),
+(5, 4, '2022-07-18', 9000.00, 'Barzahlung', 4, 5);
+
+INSERT INTO Reparatur (Auto_ID, Mitarbeiter_ID, Datum, Beschreibung, Kosten)
+VALUES (1, 2, '2022-02-14', 'Ölwechsel', 150.00),
+(2, 3, '2022-03-07', 'Austausch der Bremsbeläge', 350.00),
+(3, 1, '2022-04-18', 'Reparatur des Kupplungssystems', 1200.00),
+(4, 2, '2022-05-21', 'Reparatur des Motors', 3500.00),
+(5, 4, '2022-06-14', 'Austausch des Kühlers', 800.00);
+
+INSERT INTO Termine (kunde_ID, auto_ID, datum, beschreibung)
+VALUES (2, 1, '2022-04-01', 'Ölwechsel und Inspektion'),
+(3, 4, '2022-05-15', 'Reparatur der Bremsen'),
+(1, 5, '2022-06-05', 'Inspektion und Reifenwechsel'),
+(4, 2, '2022-07-12', 'Austausch der Batterie'),
+(2, 3, '2022-08-01', 'Inspektion und Ölwechsel');
+
+INSERT INTO Rechnung (Verkauf_ID, Datum, Summe)
+VALUES (1, '2022-03-14', 8000.00),
+(2, '2022-04-05', 12000.00),
+(3, '2022-05-07', 6500.00),
+(4, '2022-06-21', 15000.00),
+(5, '2022-07-18', 9000.00);
+
+INSERT INTO Rechnungsposition (Rechnung_ID, Position, Beschreibung, Preis, Menge)
+VALUES (1, 1, 'Gebrauchtwagen', 8000.00, 1),
+(2, 1, 'Finanzierung', 12000.00, 1),
+(3, 1, 'Gebrauchtwagen', 6500.00, 1),
+(4, 1, 'Finanzierung', 15000.00, 1),
+(5, 1, 'Gebrauchtwagen', 9000.00, 1);
