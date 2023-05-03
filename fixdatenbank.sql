@@ -1,5 +1,5 @@
-create schema if not exists auto_DB;
-use auto_DB;
+create schema if not exists auto_DB2;
+use auto_DB2;
 
 CREATE TABLE if not exists Mitarbeiter (
     mitarbeiterNr INT(255) AUTO_INCREMENT,
@@ -129,12 +129,16 @@ CREATE TABLE if not exists Reparatur_Ersatzteil (
     reparaturID INT NOT NULL,
     ersatzteilID INT NOT NULL,
     anzahl INT NOT NULL,
-    PRIMARY KEY (reparaturID, ersatzteilID)
+    PRIMARY KEY (reparaturID, ersatzteilID),
+    FOREIGN KEY (reparaturID) REFERENCES Reparatur(ID),
+    FOREIGN KEY (ersatzteilID) REFERENCES Ersatzteil(teilNr)
 );
 
 CREATE TABLE if not exists Verkauf_Ersatzteil (
     verkaufID INT NOT NULL,
     ersatzteilID INT NOT NULL,
     anzahl INT NOT NULL,
-    PRIMARY KEY (verkaufID)
+    PRIMARY KEY (verkaufID, ersatzteilID),
+    FOREIGN KEY (verkaufID) REFERENCES Verkauf(ID),
+    FOREIGN KEY (ersatzteilID) REFERENCES Ersatzteil(teilNr)
 );
