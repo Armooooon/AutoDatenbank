@@ -93,18 +93,6 @@ CREATE TABLE if not exists Rechnungsposition (
     FOREIGN KEY (Rechnung_ID) REFERENCES Rechnung(ID)
 );
 
-CREATE TABLE if not exists Fahrzeugbestand (
-    autoNr INT(50) NOT NULL AUTO_INCREMENT,
-    marke VARCHAR(50) NOT NULL,
-    modell VARCHAR(50) NOT NULL,
-    jahr INT(20) NOT NULL,
-    kilometerstand INT(20),
-    kaufdatum DATE NOT NULL,
-    kaufpreis DECIMAL(10, 2) NOT NULL,
-    verkaufsstatus VARCHAR(20) NOT NULL DEFAULT 'zum Verkauf',
-    PRIMARY KEY (autoNr)
-);
-
 CREATE TABLE if not exists Lieferant (
     lieferantNr INT(50) AUTO_INCREMENT,
     name VARCHAR(99) NOT NULL,
