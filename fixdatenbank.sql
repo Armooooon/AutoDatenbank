@@ -1,5 +1,5 @@
-create schema if not exists auto_DB2;
-use auto_DB2;
+create schema if not exists auto_DB;
+use auto_DB;
 
 CREATE TABLE if not exists Mitarbeiter (
     mitarbeiterNr INT(255) AUTO_INCREMENT,
