@@ -52,13 +52,6 @@ VALUES (2, 1, '2022-04-01', 'Ölwechsel und Inspektion'),
 (4, 2, '2022-07-12', 'Austausch der Batterie'),
 (2, 3, '2022-08-01', 'Inspektion und Ölwechsel');
 
-INSERT INTO Rechnung (Verkauf_ID, Datum, Summe)
-VALUES (1, '2022-03-14', 8000.00),
-(2, '2022-04-05', 12000.00),
-(3, '2022-05-07', 6500.00),
-(4, '2022-06-21', 15000.00),
-(5, '2022-07-18', 9000.00);
-
 INSERT INTO Rechnungsposition (Rechnung_ID, Position, Beschreibung, Preis, Menge)
 VALUES (1, 1, 'Gebrauchtwagen', 8000.00, 1),
 (2, 1, 'Finanzierung', 12000.00, 1),
